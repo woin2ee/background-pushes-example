@@ -13,6 +13,7 @@
 		E81923C628ACE09300CB3FFE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E81923C428ACE09300CB3FFE /* Main.storyboard */; };
 		E81923C828ACE09500CB3FFE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E81923C728ACE09500CB3FFE /* Assets.xcassets */; };
 		E81923CB28ACE09500CB3FFE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E81923C928ACE09500CB3FFE /* LaunchScreen.storyboard */; };
+		E81923D828ACE40600CB3FFE /* Logger+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81923D728ACE40600CB3FFE /* Logger+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		E81923C728ACE09500CB3FFE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E81923CA28ACE09500CB3FFE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E81923CC28ACE09500CB3FFE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = BackgroundPushes/Resources/Info.plist; sourceTree = SOURCE_ROOT; };
+		E81923D728ACE40600CB3FFE /* Logger+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Logger+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				E81923D228ACE0D200CB3FFE /* Application */,
 				E81923D428ACE0D800CB3FFE /* Resources */,
 				E81923D328ACE0D500CB3FFE /* Scenes */,
+				E81923D628ACE3F900CB3FFE /* Utils */,
 			);
 			path = BackgroundPushes;
 			sourceTree = "<group>";
@@ -89,6 +92,14 @@
 				E81923CC28ACE09500CB3FFE /* Info.plist */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		E81923D628ACE3F900CB3FFE /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				E81923D728ACE40600CB3FFE /* Logger+.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -165,6 +176,7 @@
 				E81923C328ACE09300CB3FFE /* MainViewController.swift in Sources */,
 				E81923BF28ACE09300CB3FFE /* AppDelegate.swift in Sources */,
 				E81923C128ACE09300CB3FFE /* SceneDelegate.swift in Sources */,
+				E81923D828ACE40600CB3FFE /* Logger+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
