@@ -13,6 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         Logger.test.notice("didFinishLaunching")
+        UNUserNotificationCenter.current().delegate = self
         self.requestNotificationPermission()
         return true
     }
@@ -44,5 +45,31 @@ private extension AppDelegate {
                 }
             }
         )
+    }
+}
+
+extension AppDelegate: UNUserNotificationCenterDelegate {
+    
+    func userNotificationCenter(
+        _ center: UNUserNotificationCenter,
+        didReceive response: UNNotificationResponse,
+        withCompletionHandler completionHandler: @escaping () -> Void
+    ) {
+        Logger.test.notice("didReceiveNotification")
+            
+        if let time = response.notification.request.content.userInfo["createdTime"] as? Date {
+            Logger.test.notice("알림이 만들어진 시각 : \(time)")
+        }
+        
+        completionHandler()
+    }
+    
+    func userNotificationCenter(
+        _ center: UNUserNotificationCenter,
+        willPresent notification: UNNotification,
+        withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void
+    ) {
+        Logger.test.notice("willPresentNotification")
+        completionHandler([.sound, .badge, .list, .banner])
     }
 }

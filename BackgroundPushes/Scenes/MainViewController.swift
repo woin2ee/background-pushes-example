@@ -20,6 +20,7 @@ final class MainViewController: UIViewController {
         notification.subtitle = "subtitle"
         notification.body = "body"
         notification.sound = .default
+        notification.userInfo = ["createdTime" : Date.init()]
         
         let timeInterval: TimeInterval = 5.0
         let trigger = UNTimeIntervalNotificationTrigger.init(timeInterval: timeInterval, repeats: false)
