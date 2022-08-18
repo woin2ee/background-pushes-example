@@ -56,7 +56,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         withCompletionHandler completionHandler: @escaping () -> Void
     ) {
         Logger.test.notice("didReceiveNotification")
-            
+        
         if let time = response.notification.request.content.userInfo["createdTime"] as? Date {
             Logger.test.notice("알림이 만들어진 시각 : \(time)")
         }
