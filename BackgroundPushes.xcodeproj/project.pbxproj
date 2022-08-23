@@ -26,6 +26,7 @@
 		E81923CA28ACE09500CB3FFE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E81923CC28ACE09500CB3FFE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = BackgroundPushes/Resources/Info.plist; sourceTree = SOURCE_ROOT; };
 		E81923D728ACE40600CB3FFE /* Logger+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Logger+.swift"; sourceTree = "<group>"; };
+		E8B844D828B38BAD001A4F6E /* BackgroundPushes.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BackgroundPushes.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +59,7 @@
 		E81923BD28ACE09300CB3FFE /* BackgroundPushes */ = {
 			isa = PBXGroup;
 			children = (
+				E8B844D828B38BAD001A4F6E /* BackgroundPushes.entitlements */,
 				E81923D228ACE0D200CB3FFE /* Application */,
 				E81923D428ACE0D800CB3FFE /* Resources */,
 				E81923D328ACE0D500CB3FFE /* Scenes */,
@@ -321,6 +323,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = BackgroundPushes/BackgroundPushes.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2AVC8X7323;
@@ -350,6 +353,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = BackgroundPushes/BackgroundPushes.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2AVC8X7323;

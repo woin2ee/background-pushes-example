@@ -11,11 +11,28 @@ import OSLog
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    func application(
+        _ application: UIApplication,
+        didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
+    ) -> Bool {
         Logger.test.notice("didFinishLaunching")
         UNUserNotificationCenter.current().delegate = self
         self.requestNotificationPermission()
         return true
+    }
+    
+    func application(
+        _ application: UIApplication,
+        didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data
+    ) {
+        Logger.test.notice("APNs 등록 성공. \(deviceToken)")
+    }
+    
+    func application(
+        _ application: UIApplication,
+        didFailToRegisterForRemoteNotificationsWithError error: Error
+    ) {
+        Logger.test.error("APNs 등록 실패. \(error.localizedDescription)")
     }
     
     // MARK: UISceneSession Lifecycle
@@ -40,6 +57,9 @@ private extension AppDelegate {
             completionHandler: { didAllow, error in
                 if didAllow {
                     Logger.test.notice("알림 허용 상태")
+                    DispatchQueue.main.async {
+                        UIApplication.shared.registerForRemoteNotifications()
+                    }
                 } else {
                     Logger.test.notice("알림 거부 상태")
                 }
