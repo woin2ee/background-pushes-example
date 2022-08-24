@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
-        Logger.test.notice("didFinishLaunching")
+        Logger.appState.notice("applicationDidFinishLaunching")
         UNUserNotificationCenter.current().delegate = self
         self.requestNotificationPermission()
         return true
@@ -25,14 +25,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         _ application: UIApplication,
         didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data
     ) {
-        Logger.test.notice("APNs 등록 성공. \(deviceToken)")
+        Logger.pushNotification.notice("APNs 등록 성공. \(deviceToken)")
     }
     
     func application(
         _ application: UIApplication,
         didFailToRegisterForRemoteNotificationsWithError error: Error
     ) {
-        Logger.test.error("APNs 등록 실패. \(error.localizedDescription)")
+        Logger.pushNotification.error("APNs 등록 실패. \(error.localizedDescription)")
     }
     
     // MARK: UISceneSession Lifecycle
@@ -56,12 +56,12 @@ private extension AppDelegate {
             options: [.alert, .sound, .badge],
             completionHandler: { didAllow, error in
                 if didAllow {
-                    Logger.test.notice("알림 허용 상태")
+                    Logger.pushNotification.notice("알림 허용 상태")
                     DispatchQueue.main.async {
                         UIApplication.shared.registerForRemoteNotifications()
                     }
                 } else {
-                    Logger.test.notice("알림 거부 상태")
+                    Logger.pushNotification.notice("알림 거부 상태")
                 }
             }
         )
@@ -75,10 +75,10 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         didReceive response: UNNotificationResponse,
         withCompletionHandler completionHandler: @escaping () -> Void
     ) {
-        Logger.test.notice("didReceiveNotification")
+        Logger.pushNotification.notice("didReceiveNotification")
         
         if let time = response.notification.request.content.userInfo["createdTime"] as? Date {
-            Logger.test.notice("알림이 만들어진 시각 : \(time)")
+            Logger.pushNotification.notice("알림이 만들어진 시각 : \(time)")
         }
         
         completionHandler()
@@ -89,7 +89,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         willPresent notification: UNNotification,
         withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void
     ) {
-        Logger.test.notice("willPresentNotification")
+        Logger.pushNotification.notice("willPresentNotification")
         completionHandler([.sound, .badge, .list, .banner])
     }
 }

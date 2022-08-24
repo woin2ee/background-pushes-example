@@ -33,6 +33,6 @@ final class MainViewController: UIViewController {
         )
         
         UNUserNotificationCenter.current().add(request)
-        Logger.test.notice("알림 등록 완료(\(timeInterval, format: .hybrid)초 후 알림, Identifier: \(identifier))")
+        Logger.pushNotification.notice("알림 등록 완료(\(timeInterval, format: .hybrid)초 후 알림, Identifier: \(identifier))")
     }
 }
