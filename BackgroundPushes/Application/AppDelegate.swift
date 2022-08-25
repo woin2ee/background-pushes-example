@@ -25,7 +25,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         _ application: UIApplication,
         didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data
     ) {
-        Logger.pushNotification.notice("APNs 등록 성공. \(deviceToken)")
+        let deviceTokenString = deviceToken
+            .map { String(format: "%02x", $0) }
+            .joined()
+        Logger.pushNotification.notice("APNs 등록 성공. \(deviceTokenString)")
     }
     
     func application(
