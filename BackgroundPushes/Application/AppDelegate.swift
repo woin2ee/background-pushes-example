@@ -11,6 +11,8 @@ import OSLog
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
+    private var jokeRepository = JokeRepository.init()
+    
     func application(
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
@@ -34,7 +36,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             Logger.pushNotification.error("No message")
         }
         
-        completionHandler(.newData)
+        self.jokeRepository.updateJoke { result in
+            switch result {
+            case .success(_):
+                Logger.network.notice("Success update joke")
+                completionHandler(.newData)
+            case .failure(_):
+                Logger.network.error("Fail update joke")
+                completionHandler(.failed)
+            }
+        }
     }
     
     func application(

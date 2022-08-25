@@ -35,4 +35,10 @@ final class MainViewController: UIViewController {
         UNUserNotificationCenter.current().add(request)
         Logger.pushNotification.notice("알림 등록 완료(\(timeInterval, format: .hybrid)초 후 알림, Identifier: \(identifier))")
     }
+    
+    @IBAction func didTapMoveJokeTableButton(_ sender: UIButton) {
+        let storyboard = UIStoryboard.init(name: "Joke", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "JokeViewController")
+        self.present(vc, animated: true)
+    }
 }

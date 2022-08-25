@@ -24,11 +24,21 @@
                                     <action selector="didTapRegisterNotificationButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="U24-sg-8Xi"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qud-CM-aZO">
+                                <rect key="frame" x="141" y="618.5" width="132" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Move Joke Table"/>
+                                <connections>
+                                    <action selector="didTapMoveJokeTableButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3kl-Cc-MjY"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Pjv-Fu-HHr" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="4sN-QF-2SS"/>
+                            <constraint firstItem="qud-CM-aZO" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" multiplier="1.4" id="86N-jq-e6r"/>
+                            <constraint firstItem="qud-CM-aZO" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="q30-Rm-edN"/>
                             <constraint firstItem="Pjv-Fu-HHr" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="vSs-uN-FCk"/>
                         </constraints>
                     </view>
