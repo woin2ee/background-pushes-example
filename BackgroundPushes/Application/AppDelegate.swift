@@ -28,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let deviceTokenString = deviceToken
             .map { String(format: "%02x", $0) }
             .joined()
-        Logger.pushNotification.notice("APNs 등록 성공. \(deviceTokenString)")
+        Logger.pushNotification.notice("APNs 등록 성공. \(deviceTokenString, privacy: .private)")
     }
     
     func application(
