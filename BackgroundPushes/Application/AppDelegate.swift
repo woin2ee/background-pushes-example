@@ -23,6 +23,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(
         _ application: UIApplication,
+        didReceiveRemoteNotification userInfo: [AnyHashable : Any],
+        fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void
+    ) {
+        Logger.pushNotification.notice("didReceiveRemoteNotification")
+        
+        if let acme1 = userInfo["acme1"] as? String {
+            Logger.pushNotification.notice("Message : \(acme1)")
+        } else {
+            Logger.pushNotification.error("No message")
+        }
+        
+        completionHandler(.newData)
+    }
+    
+    func application(
+        _ application: UIApplication,
         didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data
     ) {
         let deviceTokenString = deviceToken
